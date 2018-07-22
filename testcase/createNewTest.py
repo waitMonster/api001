@@ -3,7 +3,9 @@ import unittest
 import json
 import requests
 from Api.common import *
+import HTMLTestRunner
 from Api.LicesenCommon import *
+
 class CreateTest(unittest.TestCase):
     def setUp(self):
         pass
@@ -83,4 +85,12 @@ class CreateTest(unittest.TestCase):
     def tearDown(self):
         pass
 if __name__ == '__main__':
-    unittest.main
+    suit = unittest.TestSuite()
+    suit.addTest(CreateTest("test_addOk"))
+    suit.addTest(CreateTest("test_addIdIsNull"))
+    suit.addTest(CreateTest("test_addUseridIsNull"))
+    # runner=unittest.TextTestRunner()
+    # runner.run(suit)
+    file = open("report/testReport.html", 'wb')
+    runner = HTMLTestRunner.HTMLTestRunner(file, title=u"接口测试", description=u"test")
+    runner.run(suit)

@@ -12,5 +12,6 @@ if __name__ == '__main__':
     file=open("report/testReport.html",'wb')
     runner=HTMLTestRunner.HTMLTestRunner(file,title=u"接口测试",description=u"test")
     runner.run(suit)
+    #1233123
 #删除的接口 unittest 写测试用例
 #生成测试报告
